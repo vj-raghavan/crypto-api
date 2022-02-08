@@ -15,13 +15,17 @@ export class APIRoutes {
     this.router.use(ExchRatesRoute.path, ExchRatesRoute.router);
   }
 
-    static get router() {
-        if (!APIRoutes.instance) {
-            APIRoutes.instance = new APIRoutes();
-        }
-        return APIRoutes.instance.router;
+  static get router() {
+    if (!APIRoutes.instance) {
+      APIRoutes.instance = new APIRoutes();
     }
-    private get = async (req: Request,res: Response, NextFunction: NextFunction){
-        res.status(200).json({ online: true });
-    }
+    return APIRoutes.instance.router;
+  }
+  private get = async (
+    req: Request,
+    res: Response,
+    NextFunction: NextFunction
+  ) => {
+    res.status(200).json({ online: true });
+  };
 }
