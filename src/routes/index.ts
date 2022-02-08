@@ -1,3 +1,6 @@
+/**
+ * TODO: Add Logger to the service to make it more usable for debuggin.
+ */
 import { Request, Response, NextFunction, Router } from "express";
 import { PingRoute } from "./ping";
 import { ExchRatesRoute } from "./exchrates";
