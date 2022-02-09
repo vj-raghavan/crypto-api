@@ -1,8 +1,5 @@
-import * as debug from "debug";
 import * as winston from "winston";
 import * as expressWinston from "express-winston";
-
-export const dbg = debug("crypto-express-api");
 
 const winstonOptions = {
   transports: [new winston.transports.Console()],

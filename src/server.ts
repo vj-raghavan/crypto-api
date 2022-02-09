@@ -20,6 +20,8 @@ export class Server {
     this.app = express.default();
     // Initialise configuration for the application
     this.config();
+    // Setup logger
+    this.setLogger();
     // Setup the routes
     this.routes();
   }
@@ -60,5 +62,8 @@ export class Server {
   private routes() {
     // use router middleware
     this.app.use(APIRoutes.path, APIRoutes.router);
+  }
+  private setLogger() {
+    this.app.use(logger);
   }
 }

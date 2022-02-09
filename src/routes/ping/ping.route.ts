@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response, Router } from "express";
+import { logger } from "@/services/logger";
 export class PingRoute {
   public static path = "/ping";
   private static instance: PingRoute;
