@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction, Router } from "express";
-
+import { readFile } from "../../services/utils/fileReader";
+import { FILE_PATH } from "../../services/utils/constants";
 export class ExchRatesRoute {
   public static path = "/exch";
   public static instance: ExchRatesRoute;
@@ -24,6 +25,16 @@ export class ExchRatesRoute {
     res: Response,
     next: NextFunction
   ) => {
-    res.json("dailyrates");
+    try {
+      const fileContent = await readFile(FILE_PATH);
+      const parsedFile = JSON.parse(fileContent);
+      res.json(parsedFile);
+    } catch (err) {
+      console.error("Error occurred while reading the file");
+      res.sendStatus(500).json({
+        error: err,
+        message: "Server Error",
+      });
+    }
   };
 }
