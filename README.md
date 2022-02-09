@@ -8,3 +8,5 @@ Once installation is complete use the following commands to start the server loc
 **to start the server -->** `npm run start`
 
 **to test locally -->** `npm run test`
+
+**To test routes for exchRates and ping api run the following command** `curl http://localhost:3000/api/ping` and `curl http://localhost:3000/api/exchRates`
