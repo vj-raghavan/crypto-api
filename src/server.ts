@@ -9,7 +9,7 @@ import * as methodOverride from "method-override";
 import * as path from "path";
 
 import { APIRoutes } from "./routes";
-import { logger } from "./services/logger";
+import { logger, errorLogger } from "./services/logger";
 
 export class Server {
   public static boostrap(): Server {
@@ -58,6 +58,10 @@ export class Server {
 
     // error handling
     this.app.use(errorHandler.default());
+
+    // error logging
+
+    this.app.use(errorLogger);
   }
   private routes() {
     // use router middleware
