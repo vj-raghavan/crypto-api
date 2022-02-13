@@ -1,6 +1,6 @@
 import { Server } from "./server";
 
-const port = 3000;
+const port = 3001;
 export const app = Server.boostrap().app;
 
 export const server = app.listen(port, () => {
